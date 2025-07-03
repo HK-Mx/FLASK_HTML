@@ -1,0 +1,8 @@
+Flask
+sqlalchemy
+joblib
+numpy 
+pandas 
+datetime
+gunicorn 
+requests
