@@ -12,7 +12,8 @@ password = "postgres"
 protocolo = "postgresql"
 bbdd = "postgres"
 
-churro = f"{protocolo}://{user}:{password}@{host}:{port}/{bbdd}"
+# churro = f"{protocolo}://{user}:{password}@{host}:{port}/{bbdd}"
+churro = "postgresql://postgres1:lHIPV0IBmc9PaFxbBLOg3qRIiWJqYxrh@dpg-d1j5lovdiees73cm37q0-a.frankfurt-postgres.render.com/postgresdb_n7m7"
 engine = create_engine(churro)
 
 
