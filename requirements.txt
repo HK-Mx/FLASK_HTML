@@ -6,3 +6,4 @@ pandas
 datetime
 gunicorn 
 requests
+psycopg2-binary
