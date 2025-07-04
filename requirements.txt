@@ -7,5 +7,4 @@ datetime
 gunicorn 
 requests
 psycopg2-binary
-psycopg2
 scikit-learn==1.6.1
