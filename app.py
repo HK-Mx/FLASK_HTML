@@ -12,7 +12,7 @@ import base64
 
 load_dotenv()
 
-churro = "postgresql://postgres:postgres@34.38.195.15/postgres"
+churro = "postgresql://postgres:postgres@34.38.195.15:5432/postgres"
 engine = create_engine(churro)
 
 GEMINI_API_KEY = os.environ("GEMINI_API_KEY")
