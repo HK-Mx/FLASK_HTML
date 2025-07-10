@@ -35,34 +35,31 @@ HTML_FORM = """
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Predicción de Flor Iris</title>
     <style>
-        body{{font-family:Georgia,serif;margin:0;padding:20px;background:url('https://images.pexels.com/photos/67857/daisy-flower-spring-marguerite-67857.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center fixed;background-size:cover;color:#333;}}
-        .container{{max-width:600px;margin:auto;background:rgba(255,255,255,0.95);padding:30px;border-radius:15px;box-shadow:0 8px 16px rgba(0,0,0,0.1);position:relative;overflow:hidden;}}
-        .container::before{{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url('https://www.transparenttextures.com/patterns/paper-fibers.png');opacity:0.2;z-index:-1;}}
-        h1{{text-align:center;color:#4A7043;font-size:2.5em;margin-bottom:20px;text-shadow:1px 1px 2px rgba(0,0,0,0.1);}}
-        form{{background:#fff;padding:25px;border-radius:10px;border:1px solid #e0e0e0;box-shadow:0 4px 8px rgba(0,0,0,0.05);}}
-        label{{display:block;margin-bottom:10px;font-weight:bold;color:#6B4E31;font-size:1.1em;}}
-        input[type="file"]{{width:calc(100% - 22px);padding:12px;margin-bottom:20px;border:1px solid #d4e4d4;border-radius:8px;background:#f8fff8;font-family:Georgia,serif;}}
-        input[type="submit"]{{background:linear-gradient(45deg,#4CAF50,#81C784);color:white;padding:12px 20px;border:none;border-radius:25px;cursor:pointer;font-size:1.1em;transition:transform 0.2s,background 0.3s;}}
-        input[type="submit"]:hover{{background:linear-gradient(45deg,#45a049,#66BB6A);transform:scale(1.05);}}
-        .prediction-result{{margin-top:20px;padding:15px;background:#e6f3e6;border:1px solid #4CAF50;border-radius:10px;color:#font-family:Georgia,serif;}}
-        .error-message{{margin-top:20px;padding:15px;background:#ffe6e6;border:1px solid #ff4c4c;border-radius:10px;color:#ff4c4c;font-style:italic;}}
-        .image-display{{margin-top:20px;text-align:center;}}
-        .image-display img{{max-width:100%;height:auto;border:2px solid #d4e4d4;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.1);}}
-        .flower-decor{{position:absolute;top:10px;right:10px;width:100px;height:100px;background:url('https://www.transparenttextures.com/patterns/flowers.png');opacity:0.3;z-index:-1;}}
+        body {{font-family: Arial, sans-serif; margin: 20px; }}
+        form {{background-color: #f4f4f4; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; }}
+        label {{display: block; margin-bottom: 8px; font-weight: bold; }}
+        input[type="file"] {{width: calc(100% - 22px); padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; }}
+        input[type="submit"] {{background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }}
+        input[type="submit"]:hover {{ background-color: #45a049; }}
+        .prediction-result {{margin-top: 20px; padding: 15px; background-color: #e9ffe9; border: 1px solid #4CAF50; border-radius: 8px; }}
+        .error-message {{margin-top: 20px; padding: 15px; background-color: #ffe9e9; border: 1px solid #ff4c4c; border-radius: 8px; color: #ff4c4c; }}
+        .image-display {{ margin-top: 20px; text-align: center; }}
+        .image-display img {{ max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; }}
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="flower-decor"></div>
-        <h1>Predicción de Flor Iris</h1>
-        <form action="/predict" method="post" enctype="multipart/form-data">
-            <label for="plant_image">Adjunta una foto de tu flor:</label>
-            <input type="file" id="plant_image" name="plant_image" accept="image/*" required>
-            <input type="submit" value="Descubrir Flor">
-        </form>
-    </div>
+    <h1>Predicción de Flor Iris</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <label for="plant_image">Adjuntar foto de la planta:</label>
+        <input type="file" id="plant_image" name="plant_image" accept="image/*" required><br>
+        <input type="submit" value="Predecir">
+    </form>
+
+    {image_display}
+    {prediction_result}
 </body>
-</html> """
+</html>
+"""
 
 @app.route('/')
 def home():
