@@ -15,7 +15,7 @@ load_dotenv()
 churro = "postgresql://postgres:postgres@34.38.195.15:5432/postgres"
 engine = create_engine(churro)
 
-GEMINI_API_KEY = os.environ("GEMINI_API_KEY")
+GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
 if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY no encontrada en las variables de entorno.")
 
